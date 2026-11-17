@@ -1,4 +1,8 @@
-const PRIORITIES = ["high", "medium", "low"];
+export const PRIORITIES = Object.freeze({
+  HIGH: "high",
+  MEDIUM: "medium",
+  LOW: "low",
+});
 
 export class Todo {
   constructor(title, description, dueDate, priority) {
@@ -16,7 +20,7 @@ export class Todo {
 
   changePriority(newPriority) {
     // one line guard for anything not in PRIORITIES
-    if (!PRIORITIES.includes(newPriority)) return;
+    if (!Object.values(PRIORITIES).includes(newPriority)) return;
     this.priority = newPriority;
   }
 
